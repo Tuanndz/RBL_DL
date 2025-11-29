@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Roblox</title>
+    <title>Roblox Download</title>
+    <meta property="og:title" content="Roblox Download">
+    <meta property="og:description" content="download roblox hackk xịn vàa script với cloud ugphonee cree Tuann">
+    <meta property="og:image" content="https://files.catbox.moe/mlq4is.jpg">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="summary_large_image">
     <style>
         /* CSS Variables - Updated with glassmorphism and gradient colors */
         :root {
@@ -13,6 +18,7 @@
             --secondary-color: #9c27b0;
             --secondary-light: #d05ce3;
             --success-color: #00e676;
+            --success-light: rgba(0, 230, 118, 0.1);
             --danger-color: #ff5252;
             --warning-color: #ffd740;
             --light-color: #f8f9fa;
@@ -30,6 +36,8 @@
             --gradient-dark: linear-gradient(135deg, #121212, #1a1a2e);
             --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
             --border-radius: 20px;
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Montserrat', sans-serif;
         }
 
         [data-theme="dark"] {
@@ -39,6 +47,7 @@
             --secondary-color: #d05ce3;
             --secondary-light: #e891f5;
             --success-color: #00e676;
+            --success-light: rgba(0, 230, 118, 0.2);
             --danger-color: #ff5252;
             --warning-color: #ffd740;
             --light-color: #1e1e1e;
@@ -71,12 +80,30 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: var(--font-primary);
             background-color: var(--background-color);
             color: var(--text-primary);
             line-height: 1.6;
             transition: all 0.5s ease;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Custom Background */
+        .custom-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.2;
+            transition: opacity 0.5s ease;
+        }
+
+        .custom-background.video {
+            opacity: 0.3;
         }
 
         /* Custom Scrollbar */
@@ -211,7 +238,7 @@
             background-color: rgba(255, 255, 255, 0.9);
             color: var(--text-primary);
             transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
+            font-family: var(--font-primary);
         }
 
         .input-group input:focus, .input-group select:focus {
@@ -231,7 +258,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             margin-bottom: 10px;
-            font-family: 'Poppins', sans-serif;
+            font-family: var(--font-primary);
             position: relative;
             overflow: hidden;
         }
@@ -342,7 +369,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
-            height: 70px;
+            height: 60px;
         }
 
         .nav-logo {
@@ -354,25 +381,29 @@
         .nav-logo h2 {
             color: white;
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
 
         .nav-menu {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .nav-btn {
-            padding: 10px 20px;
+            padding: 8px 16px;
             background: transparent;
             border: none;
             color: rgba(255, 255, 255, 0.8);
             cursor: pointer;
-            border-radius: 10px;
+            border-radius: 8px;
             transition: all 0.3s ease;
             font-weight: 500;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
         }
 
         .nav-btn::after {
@@ -393,6 +424,12 @@
 
         .nav-btn.active::after, .nav-btn:hover::after {
             width: 100%;
+        }
+
+        .nav-btn img {
+            width: 20px;
+            height: 20px;
+            margin-bottom: 4px;
         }
 
         .nav-user {
@@ -476,14 +513,74 @@
             text-align: center;
         }
 
+        /* Search Bars */
+        .search-container {
+            display: flex;
+            margin-bottom: 20px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            background-color: var(--card-background);
+            color: var(--text-primary);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 106, 255, 0.2);
+        }
+
+        .search-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .search-btn img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Search Results Info */
+        .search-results-info {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 16px;
+        }
+
         /* Games Grid */
-        .games-grid, .clouds-grid {
+        .games-grid, .clouds-grid, .groups-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
         }
 
-        .game-card, .cloud-card {
+        .game-card, .cloud-card, .group-card {
             background: var(--gradient-card);
             border-radius: var(--border-radius);
             overflow: hidden;
@@ -495,27 +592,27 @@
             border: 1px solid var(--glass-border);
         }
 
-        .game-card:hover, .cloud-card:hover {
+        .game-card:hover, .cloud-card:hover, .group-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .game-card img, .cloud-card img {
+        .game-card img, .cloud-card img, .group-card img {
             width: 100%;
             height: 180px;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .game-card:hover img, .cloud-card:hover img {
+        .game-card:hover img, .cloud-card:hover img, .group-card:hover img {
             transform: scale(1.05);
         }
 
-        .game-info, .cloud-info {
+        .game-info, .cloud-info, .group-info {
             padding: 15px;
         }
 
-        .game-info h3, .cloud-info h3 {
+        .game-info h3, .cloud-info h3, .group-info h3 {
             margin-bottom: 10px;
             font-size: 1.1rem;
             font-weight: 600;
@@ -691,153 +788,6 @@
 
         input:checked + .slider:before {
             transform: translateX(26px);
-        }
-
-        .navigation-section {
-            background: var(--gradient-card);
-            border-radius: var(--border-radius);
-            padding: 20px;
-            box-shadow: var(--shadow);
-            margin: 20px 0;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-        }
-
-        .navigation-section h3 {
-            margin-bottom: 15px;
-            text-align: center;
-            font-size: 1.2rem;
-        }
-
-        .navigation-buttons {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .nav-direction-btn {
-            padding: 12px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .nav-direction-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .nav-direction-btn.active {
-            background: var(--secondary-color);
-        }
-
-        .floating-nav {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--gradient-card);
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            z-index: 999;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            display: flex;
-            flex-direction: column;
-            padding: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .floating-nav.minimized {
-            height: 40px;
-            overflow: hidden;
-        }
-
-        .floating-nav-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .floating-nav-btn {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 5px;
-        }
-
-        .floating-nav-btn:hover {
-            background: var(--primary-dark);
-        }
-
-        .floating-nav-btn.active {
-            background: var(--secondary-color);
-        }
-
-        .lock-btn {
-            background: var(--warning-color) !important;
-        }
-
-        .lock-btn.locked {
-            background: var(--danger-color) !important;
-        }
-
-        .hide-btn {
-            background: var(--text-secondary) !important;
-        }
-
-        .zalo-group {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: var(--gradient-card);
-            padding: 20px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            margin: 20px 0;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-        }
-
-        .group-avatar img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-        }
-
-        .group-info {
-            flex: 1;
-        }
-
-        .group-info h4 {
-            margin-bottom: 10px;
-        }
-
-        .join-btn {
-            width: auto;
-            padding: 8px 16px;
         }
 
         /* Social Links */
@@ -1038,24 +988,21 @@
         /* Music Player */
         .music-player {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 400px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: var(--gradient-card);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            z-index: 999;
+            z-index: 1000;
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.5s ease;
+            display: none;
+            flex-direction: column;
         }
 
         .music-player.active {
-            transform: translateY(0);
-            opacity: 1;
+            display: flex;
+            animation: fadeIn 0.3s ease;
         }
 
         .music-header {
@@ -1065,532 +1012,222 @@
             padding: 15px;
             background: var(--gradient-primary);
             color: white;
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            height: 60px;
         }
 
         .music-controls {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            padding: 15px;
-        }
-
-        .music-url-input {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .music-url-input input {
-            flex: 1;
-            padding: 10px 15px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            background: var(--card-background);
-            color: var(--text-primary);
-        }
-
-        .music-url-input button {
-            padding: 10px 15px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .music-url-input button:hover {
-            background: var(--primary-dark);
-        }
-
-        .music-buttons {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .music-buttons button {
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            background: var(--primary-color);
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .music-buttons button:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .music-buttons button.active {
-            background: var(--secondary-color);
-        }
-
-        .music-toggle {
-            display: flex;
+            align-items: center;
             justify-content: center;
-            padding: 10px;
-            border-top: 1px solid var(--border-color);
+            flex: 1;
+            padding: 20px;
+            gap: 30px;
         }
 
-        /* Chat System */
-        .chat-container {
-            position: fixed;
+        .music-album-art {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+        }
+
+        .music-search-container {
+            display: flex;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 20px;
+        }
+
+        .music-search-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            background-color: var(--card-background);
+            color: var(--text-primary);
+            font-size: 16px;
+        }
+
+        .music-search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 106, 255, 0.2);
+        }
+
+        .music-control-buttons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .music-control-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 20px;
+            color: white;
+        }
+
+        .music-control-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .music-control-btn.play-pause {
+            width: 80px;
+            height: 80px;
+            font-size: 30px;
+        }
+
+        .auto-next-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .auto-next-btn.active {
+            background: var(--success-color);
+        }
+
+        .auto-next-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .volume-control {
+            position: absolute;
             bottom: 20px;
             left: 20px;
-            width: 350px;
-            height: 500px;
-            background: var(--gradient-card);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-            z-index: 999;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            transform: translateX(-400px);
-            transition: transform 0.5s ease;
-        }
-
-        .chat-container.active {
-            transform: translateX(0);
-        }
-
-        .chat-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            background: var(--gradient-primary);
-            color: white;
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
-        }
-
-        .chat-title {
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .chat-close-btn {
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .chat-close-btn:hover {
-            transform: scale(1.2);
-        }
-
-        .chat-menu-btn {
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .chat-content {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .message {
-            padding: 10px 15px;
-            border-radius: 18px;
-            max-width: 80%;
-            word-wrap: break-word;
-        }
-
-        .user-message {
-            align-self: flex-end;
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .bot-message {
-            align-self: flex-start;
-            background: var(--card-background);
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-        }
-
-        .chat-input {
-            display: flex;
-            padding: 15px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .chat-input input {
-            flex: 1;
-            padding: 10px 15px;
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            background: var(--card-background);
-            color: var(--text-primary);
-        }
-
-        .chat-input button {
-            margin-left: 10px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 20px;
-            background: var(--primary-color);
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .chat-input button:hover {
-            background: var(--primary-dark);
-        }
-
-        .chat-input button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        /* Chat Menu */
-        .chat-menu {
-            position: absolute;
-            top: 50px;
-            right: 10px;
-            background: var(--gradient-card);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            padding: 10px;
-            min-width: 150px;
-            z-index: 1000;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            display: none;
-        }
-
-        .chat-menu.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .chat-menu-item {
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .chat-menu-item:hover {
-            background: rgba(0, 106, 255, 0.1);
-        }
-
-        .chat-footer {
-            padding: 10px;
-            text-align: center;
-            font-size: 12px;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border-color);
-        }
-
-        /* Name Edit Popup */
-        .name-edit-popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-        }
-
-        .name-edit-popup.active {
-            display: flex;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .name-edit-content {
-            background: var(--gradient-card);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: var(--shadow);
-            text-align: center;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-        }
-
-        /* Developer Mode */
-        .dev-container {
-            background: var(--gradient-card);
-            border-radius: var(--border-radius);
-            width: 90%;
-            max-width: 900px;
-            max-height: 90vh;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-        }
-
-        .dev-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid var(--border-color);
-            background: var(--gradient-primary);
-            color: white;
-        }
-
-        .dev-header h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .btn-close {
+        .volume-btn {
             background: transparent;
             border: none;
             font-size: 24px;
             cursor: pointer;
-            color: white;
+            color: var(--text-primary);
         }
 
-        .dev-tabs {
-            display: flex;
-            border-bottom: 1px solid var(--border-color);
-            overflow-x: auto;
-            background: var(--card-background);
-        }
-
-        .dev-tab {
-            padding: 15px 20px;
-            background: transparent;
-            border: none;
-            border-bottom: 3px solid transparent;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.3s ease;
-            color: var(--text-secondary);
-        }
-
-        .dev-tab.active {
-            color: var(--primary-color);
-            border-bottom-color: var(--primary-color);
-        }
-
-        .dev-content {
-            flex: 1;
+        .music-list {
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            background: var(--gradient-card);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            max-width: 300px;
+            width: 100%;
+            max-height: 400px;
             overflow-y: auto;
-            padding: 20px;
-        }
-
-        .dev-tab-content {
+            box-shadow: var(--shadow);
             display: none;
         }
 
-        .dev-tab-content.active {
+        .music-list.active {
             display: block;
-            animation: fadeIn 0.5s ease;
         }
 
-        .dev-tab-content h3 {
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-
-        .dev-tab-content .input-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .dev-tab-content .input-group input {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .dev-tab-content .input-group button {
-            width: auto;
-        }
-
-        .items-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px;
-            background: var(--light-color);
+        .music-item {
+            padding: 10px;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .item:hover {
+        .music-item:hover {
             background: rgba(0, 106, 255, 0.1);
         }
 
-        .item.selected {
+        .music-item.active {
             background: rgba(0, 106, 255, 0.2);
-            border: 1px solid var(--primary-color);
         }
 
-        .item img {
-            width: 60px;
-            height: 40px;
-            object-fit: cover;
-            border-radius: 6px;
+        /* Music Title Animation */
+        .music-title-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            height: 30px;
         }
 
-        .item-info {
-            flex: 1;
+        .music-title {
+            white-space: nowrap;
+            position: absolute;
+            animation: scrollText 15s linear infinite;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
         }
 
-        .item-info h4 {
-            margin-bottom: 5px;
-            font-size: 1rem;
+        @keyframes scrollText {
+            0% {
+                transform: translateX(100%);
+            }
+            90% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
         }
 
-        .item-info p {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-
-        .cloud-stats-small {
-            display: flex;
-            gap: 10px;
-            margin-top: 5px;
-        }
-
-        .cloud-stats-small span {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        .item-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .delete-btn {
-            padding: 5px 10px;
-            background: var(--danger-color);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: all 0.3s ease;
-        }
-
-        .delete-btn:hover {
-            background: #ff1a1a;
-            transform: scale(1.05);
-        }
-
-        .data-actions {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .data-actions button {
-            width: auto;
+        .music-title.paused {
+            animation-play-state: paused;
         }
 
         /* Cloud Viewer */
         .cloud-overlay {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 400px;
-            height: 300px;
-            background: var(--gradient-card);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background-color);
+            z-index: 999;
             display: none;
             flex-direction: column;
-            z-index: 999;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
         }
 
         .cloud-overlay.active {
             display: flex;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .cloud-overlay.minimized {
-            height: 40px;
-            overflow: hidden;
         }
 
         .cloud-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 15px;
+            padding: 0 20px;
             background: var(--gradient-primary);
             color: white;
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
-        }
-
-        .cloud-controls {
-            display: flex;
-            gap: 5px;
-        }
-
-        .cloud-btn {
-            background: transparent;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 16px;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cloud-time {
-            font-size: 12px;
-            margin-right: 10px;
+            height: 60px;
         }
 
         .cloud-content {
             flex: 1;
             overflow: hidden;
+            position: relative;
         }
 
         .cloud-content iframe {
@@ -1667,11 +1304,167 @@
             font-weight: 600;
         }
 
-        /* Floating Nav Images */
-        .floating-nav-img {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
+        /* Background App Runner */
+        .background-runner {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 998;
+            transition: all 0.3s ease;
+        }
+
+        .background-runner:hover {
+            transform: scale(1.1);
+        }
+
+        .background-runner img {
+            width: 30px;
+            height: 30px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Zalo Button */
+        .zalo-button {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #0068FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 998;
+            transition: all 0.3s ease;
+        }
+
+        .zalo-button:hover {
+            transform: scale(1.1);
+        }
+
+        .zalo-button img {
+            width: 36px;
+            height: 36px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            padding: 15px 20px;
+            background: var(--success-color);
+            color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            z-index: 1001;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            max-width: 300px;
+            animation: slideInRight 0.3s ease;
+        }
+
+        .notification.show {
+            display: flex;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .notification-icon {
+            font-size: 20px;
+        }
+
+        /* Drag and Drop Styles */
+        .drag-drop-area {
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        .drag-drop-area.active {
+            border-color: var(--primary-color);
+            background-color: rgba(0, 106, 255, 0.05);
+        }
+
+        .drag-drop-area p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        .drag-drop-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        /* Background Settings */
+        .background-preview {
+            width: 100%;
+            height: 150px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .background-preview img,
+        .background-preview video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .background-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .background-controls button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .background-controls .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .background-controls .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
         }
 
         /* Responsive Design */
@@ -1684,13 +1477,15 @@
 
             .nav-menu {
                 margin: 15px 0;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             .nav-user {
                 margin-top: 10px;
             }
 
-            .games-grid, .clouds-grid {
+            .games-grid, .clouds-grid, .groups-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
 
@@ -1722,19 +1517,7 @@
             }
 
             .cloud-overlay {
-                width: calc(100% - 40px);
-                height: 50vh;
-            }
-
-            .chat-container {
-                width: calc(100% - 40px);
-                left: 20px;
-                height: 60vh;
-            }
-
-            .music-player {
-                width: calc(100% - 40px);
-                right: 20px;
+                width: 100%;
             }
 
             .daily-calendar {
@@ -1746,12 +1529,31 @@
                 margin-bottom: 10px;
             }
 
-            .floating-nav {
-                right: 10px;
+            .music-album-art {
+                width: 250px;
+                height: 250px;
             }
 
-            .navigation-buttons {
-                grid-template-columns: repeat(2, 1fr);
+            .music-control-buttons {
+                gap: 15px;
+            }
+
+            .music-control-btn {
+                width: 50px;
+                height: 50px;
+            }
+
+            .music-control-btn.play-pause {
+                width: 70px;
+                height: 70px;
+            }
+
+            .music-title-container {
+                max-width: 300px;
+            }
+
+            .music-search-container {
+                max-width: 350px;
             }
         }
 
@@ -1764,7 +1566,7 @@
                 font-size: 2.5rem;
             }
 
-            .games-grid, .clouds-grid {
+            .games-grid, .clouds-grid, .groups-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1780,24 +1582,104 @@
                 margin-bottom: 10px;
             }
 
-            .navigation-buttons {
-                grid-template-columns: 1fr;
+            .music-album-art {
+                width: 200px;
+                height: 200px;
             }
 
-            .music-player {
-                width: calc(100% - 40px);
+            .music-control-buttons {
+                gap: 10px;
             }
 
-            .music-buttons {
-                grid-template-columns: repeat(2, 1fr);
+            .music-control-btn {
+                width: 45px;
+                height: 45px;
+            }
+
+            .music-control-btn.play-pause {
+                width: 60px;
+                height: 60px;
+            }
+
+            .music-title-container {
+                max-width: 250px;
+            }
+
+            .music-search-container {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-height: 600px) and (orientation: landscape) {
+            .login-container {
+                padding: 10px;
+            }
+
+            .logo {
+                margin-bottom: 20px;
+            }
+
+            .logo h1 {
+                font-size: 2rem;
+            }
+
+            .login-form {
+                padding: 20px;
+                max-width: 350px;
+            }
+
+            .nav-container {
+                padding: 10px 15px;
+                height: 50px;
+            }
+
+            .nav-btn {
+                padding: 6px 12px;
+                font-size: 10px;
+            }
+
+            .nav-btn img {
+                width: 16px;
+                height: 16px;
+            }
+
+            .main-content {
+                padding: 15px 10px;
+            }
+
+            .page-title {
+                margin-bottom: 15px;
+                font-size: 1.5rem;
+            }
+
+            .games-grid, .clouds-grid, .groups-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 10px;
+            }
+
+            .game-card img, .cloud-card img, .group-card img {
+                height: 120px;
+            }
+
+            .game-info, .cloud-info, .group-info {
+                padding: 10px;
+            }
+
+            .music-album-art {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Custom Background -->
+    <img id="customBackgroundImage" class="custom-background" src="" alt="Background Image" style="display: none;">
+    <video id="customBackgroundVideo" class="custom-background video" loop muted style="display: none;"></video>
+
     <!-- Login Screen -->
     <div id="loginScreen" class="screen active">
         <div class="login-container">
@@ -1854,10 +1736,22 @@
                     <h2>Game Center</h2>
                 </div>
                 <div class="nav-menu">
-                    <button class="nav-btn active" data-page="download">Download</button>
-                    <button class="nav-btn" data-page="cloud">Cloud</button>
-                    <button class="nav-btn" id="chatBtn">Chat</button>
-                    <button class="nav-btn" data-page="settings">Settings</button>
+                    <button class="nav-btn active" data-page="download">
+                        <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Download">
+                        <span>Download</span>
+                    </button>
+                    <button class="nav-btn" data-page="cloud">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1163/1163734.png" alt="Cloud">
+                        <span>Cloud</span>
+                    </button>
+                    <button class="nav-btn" data-page="groups">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png" alt="Groups">
+                        <span>Groups</span>
+                    </button>
+                    <button class="nav-btn" data-page="settings">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2099/2099153.png" alt="Settings">
+                        <span>Settings</span>
+                    </button>
                 </div>
                 <div class="nav-user">
                     <span id="userDisplay">Admin <button class="edit-name-btn" id="editNameBtn">✏️</button></span>
@@ -1871,7 +1765,14 @@
         <main class="main-content">
             <!-- Download Page -->
             <div id="downloadPage" class="page active">
-                <h2 class="page-title">Game Download</h2>
+                <h2 class="page-title">Roblox-script</h2>
+                <div class="search-container">
+                    <input type="text" id="downloadSearch" class="search-input" placeholder="Tìm kiếm game...">
+                    <button class="search-btn" id="downloadSearchBtn">
+                        <img src="https://cdn-icons-png.flaticon.com/512/149/149852.png" alt="Search">
+                    </button>
+                </div>
+                <div class="search-results-info" id="downloadSearchResults"></div>
                 <div class="games-grid" id="gamesGrid">
                     <!-- Games will be loaded here -->
                 </div>
@@ -1880,8 +1781,23 @@
             <!-- Cloud Page -->
             <div id="cloudPage" class="page">
                 <h2 class="page-title">Cloud</h2>
+                <div class="search-container">
+                    <input type="text" id="cloudSearch" class="search-input" placeholder="Tìm kiếm cloud...">
+                    <button class="search-btn" id="cloudSearchBtn">
+                        <img src="https://cdn-icons-png.flaticon.com/512/149/149852.png" alt="Search">
+                    </button>
+                </div>
+                <div class="search-results-info" id="cloudSearchResults"></div>
                 <div class="clouds-grid" id="cloudsGrid">
                     <!-- Clouds will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Groups Page -->
+            <div id="groupsPage" class="page">
+                <h2 class="page-title">Zalo Groups</h2>
+                <div class="groups-grid" id="groupsGrid">
+                    <!-- Groups will be loaded here -->
                 </div>
             </div>
 
@@ -1913,16 +1829,18 @@
                         </label>
                     </div>
 
-                    <!-- Navigation Section -->
-                    <div class="navigation-section">
-                        <h3>Điều hướng</h3>
-                        <div class="navigation-buttons">
-                            <button class="nav-direction-btn" id="navTopBtn">Trên</button>
-                            <button class="nav-direction-btn" id="navBottomBtn">Dưới</button>
-                            <button class="nav-direction-btn" id="navRightBtn">Phải</button>
-                            <button class="nav-direction-btn" id="navLeftBtn">Trái</button>
-                            <button class="nav-direction-btn" id="navFloatBtn">Nổi</button>
-                        </div>
+                    <div class="setting-item">
+                        <label for="backgroundRunner">Chạy nền ứng dụng</label>
+                        <label class="switch">
+                            <input type="checkbox" id="backgroundRunner">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <!-- Background Settings -->
+                    <div class="setting-item">
+                        <label for="backgroundSettings">Hình nền</label>
+                        <button id="backgroundSettingsBtn" class="btn-secondary">Thay đổi</button>
                     </div>
 
                     <!-- Social Links -->
@@ -1931,7 +1849,7 @@
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube">
                         </div>
                         <div class="social-link" id="zaloLink">
-                            <img src="https://upload.wikimedia.org/wikipedia/vi/thumb/f/f6/Zalo_logo.png/640px-Zalo_logo.png" alt="Zalo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMDg68zSJU2TpKyMFJwkWpuGsXF_FTMJguqA&s" alt="Zalo">
                         </div>
                         <div class="social-link" id="facebookLink">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook">
@@ -1950,24 +1868,8 @@
                         </div>
                     </div>
 
-                    <div class="zalo-group">
-                        <div class="group-avatar">
-                            <img src="https://files.catbox.moe/mlq4is.jpg" alt="Zalo Group">
-                        </div>
-                        <div class="group-info">
-                            <h4>Nhóm Zalo Game Center</h4>
-                            <button class="btn-primary join-btn">Tham gia</button>
-                        </div>
-                    </div>
-
-                    <div class="zalo-group">
-                        <div class="group-avatar">
-                            <img src="https://files.catbox.moe/mlq4is.jpg" alt="Zalo Group">
-                        </div>
-                        <div class="group-info">
-                            <h4>Nhóm Zalo Game Center 2</h4>
-                            <button class="btn-primary join-btn">Tham gia</button>
-                        </div>
+                    <div id="zaloGroupsContainer">
+                        <!-- Zalo groups will be loaded here -->
                     </div>
 
                     <button id="devModeBtn" class="btn-secondary">Chế độ phát triển</button>
@@ -1977,24 +1879,20 @@
         </main>
     </div>
 
-    <!-- Floating Navigation -->
-    <div id="floatingNav" class="floating-nav">
-        <div class="floating-nav-header">
-            <button class="floating-nav-btn lock-btn" id="navLockBtn">🔒</button>
-            <button class="floating-nav-btn hide-btn" id="navHideBtn">^</button>
-        </div>
-        <button class="floating-nav-btn" data-page="download">
-            <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Download" class="floating-nav-img">
-        </button>
-        <button class="floating-nav-btn" data-page="cloud">
-            <img src="https://cdn-icons-png.flaticon.com/512/1163/1163734.png" alt="Cloud" class="floating-nav-img">
-        </button>
-        <button class="floating-nav-btn" id="floatingChatBtn">
-            <img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png" alt="Chat" class="floating-nav-img">
-        </button>
-        <button class="floating-nav-btn" data-page="settings">
-            <img src="https://cdn-icons-png.flaticon.com/512/2099/2099153.png" alt="Settings" class="floating-nav-img">
-        </button>
+    <!-- Background App Runner -->
+    <div id="backgroundRunnerBtn" class="background-runner">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Run in Background">
+    </div>
+
+    <!-- Zalo Button -->
+    <div id="zaloButton" class="zalo-button">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMDg68zSJU2TpKyMFJwkWpuGsXF_FTMJguqA&s" alt="Zalo">
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-icon">✓</div>
+        <div class="notification-text"></div>
     </div>
 
     <!-- Welcome Popup -->
@@ -2031,8 +1929,8 @@
     </div>
 
     <!-- Name Edit Popup -->
-    <div id="nameEditPopup" class="name-edit-popup">
-        <div class="name-edit-content">
+    <div id="nameEditPopup" class="popup-overlay">
+        <div class="popup-content">
             <h3>Đổi tên hiển thị</h3>
             <div class="input-group">
                 <input type="text" id="newNameInput" placeholder="Nhập tên mới">
@@ -2094,57 +1992,83 @@
         </div>
     </div>
 
-    <!-- Music Player -->
-    <div id="musicPlayer" class="music-player">
-        <div class="music-header">
-            <h3>Music Player</h3>
-            <button id="closeMusicBtn" class="btn-close">×</button>
-        </div>
-        <div class="music-controls">
-            <div class="music-url-input">
-                <input type="text" id="musicUrlInput" placeholder="Nhập URL nhạc hoặc tìm kiếm">
-                <button id="playUrlBtn">Phát</button>
+    <!-- Zalo Group Popup -->
+    <div id="zaloGroupPopup" class="popup-overlay">
+        <div class="popup-content">
+            <h3>Tham gia nhóm Zalo</h3>
+            <p>Bạn có muốn tham gia nhóm Zalo không?</p>
+            <div class="popup-buttons">
+                <button id="confirmZaloBtn" class="btn-primary">Có</button>
+                <button id="cancelZaloBtn" class="btn-secondary">Không</button>
             </div>
-            <div class="music-buttons">
-                <button id="music1" class="btn-primary">Nhạc 1</button>
-                <button id="music2" class="btn-primary">Nhạc 2</button>
-                <button id="music3" class="btn-primary">Nhạc 3</button>
-                <button id="music4" class="btn-primary">Nhạc 4</button>
-                <button id="music5" class="btn-primary">Nhạc 5</button>
-                <button id="musicSearchBtn" class="btn-primary">Tìm kiếm</button>
-            </div>
-        </div>
-        <div class="music-toggle">
-            <button id="musicOffBtn" class="btn-secondary">Tắt nhạc</button>
         </div>
     </div>
 
-    <!-- Chat System -->
-    <div id="chatContainer" class="chat-container">
-        <div class="chat-header">
-            <div class="chat-title">
-                <button class="chat-close-btn" id="chatCloseBtn">×</button>
-                <h3 id="chatTitle">Chat với Bot</h3>
+    <!-- Music Player -->
+    <div id="musicPlayer" class="music-player">
+        <div class="music-header">
+            <h3>Trình phát nhạc</h3>
+            <button id="closeMusicBtn" class="btn-close">_</button>
+        </div>
+        <div class="music-controls">
+            <div class="music-search-container">
+                <input type="text" id="musicSearchInput" class="music-search-input" placeholder="Tìm kiếm nhạc...">
+                <button id="toggleMusicList" class="btn-primary">Tìm</button>
             </div>
-            <button class="chat-menu-btn" id="chatMenuBtn">☰</button>
+            <img id="musicAlbumArt" src="https://files.catbox.moe/mlq4is.jpg" alt="Album Art" class="music-album-art">
+            <div class="music-title-container">
+                <div id="musicTitle" class="music-title"></div>
+            </div>
+            <div class="music-control-buttons">
+                <button id="rewindBtn" class="music-control-btn">⏪</button>
+                <button id="playPauseBtn" class="music-control-btn play-pause">⏸️</button>
+                <button id="forwardBtn" class="music-control-btn">⏩</button>
+            </div>
+            <button id="autoNextBtn" class="auto-next-btn" title="Tự động chuyển bài">A</button>
+            <div class="volume-control">
+                <button id="volumeBtn" class="volume-btn">🔊</button>
+            </div>
         </div>
-        <div class="chat-content" id="chatContent">
-            <!-- Messages will be added here -->
+        <div class="music-list" id="musicList">
+            <!-- Music list will be populated by JavaScript -->
         </div>
-        <div class="chat-input">
-            <input type="text" id="chatInput" placeholder="Nhập tin nhắn...">
-            <button id="sendMessageBtn">Gửi</button>
+    </div>
+
+    <!-- Cloud Viewer -->
+    <div id="cloudViewer" class="cloud-overlay">
+        <div class="cloud-header">
+            <h3 id="cloudViewerTitle">Cloud Viewer</h3>
+            <button id="closeCloud" class="btn-close">×</button>
         </div>
-        <div class="chat-footer">
-            <p>cree Tuann</p>
+        <div class="cloud-content">
+            <iframe id="cloudFrame" src="" frameborder="0" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
         </div>
-        
-        <!-- Chat Menu -->
-        <div class="chat-menu" id="chatMenu">
-            <div class="chat-menu-item" id="newChatBtn">Đoạn chat mới</div>
-            <div class="chat-menu-item" id="renameChatBtn">Đổi tên đoạn chat</div>
-            <div class="chat-menu-item" id="pinChatBtn">Ghim đoạn chat</div>
-            <div class="chat-menu-item" id="deleteChatBtn">Xoá đoạn chat</div>
+    </div>
+
+    <!-- Background Settings Popup -->
+    <div id="backgroundSettingsPopup" class="popup-overlay">
+        <div class="popup-content">
+            <h3>Thay đổi hình nền</h3>
+            <div class="drag-drop-area" id="backgroundDragDrop">
+                <div class="drag-drop-icon">📁</div>
+                <p>Kéo thả ảnh hoặc video vào đây</p>
+                <p class="small-text">(Hỗ trợ: JPG, PNG, GIF, MP4, WebM - Video tối đa 50MB)</p>
+            </div>
+            <div class="background-preview" id="backgroundPreview">
+                <!-- Preview will be shown here -->
+            </div>
+            <div class="setting-item">
+                <label for="backgroundSound">Âm thanh video</label>
+                <label class="switch">
+                    <input type="checkbox" id="backgroundSound">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="background-controls">
+                <button id="applyBackgroundBtn" class="btn-primary">Áp dụng</button>
+                <button id="resetBackgroundBtn" class="btn-secondary">Mặc định</button>
+                <button id="cancelBackgroundBtn" class="btn-secondary">Hủy</button>
+            </div>
         </div>
     </div>
 
@@ -2160,6 +2084,7 @@
                 <button class="dev-tab active" data-tab="videos">Quản lý Video</button>
                 <button class="dev-tab" data-tab="games">Quản lý Game</button>
                 <button class="dev-tab" data-tab="clouds">Quản lý Cloud</button>
+                <button class="dev-tab" data-tab="groups">Quản lý Groups</button>
                 <button class="dev-tab" data-tab="popup">Cài đặt Popup</button>
                 <button class="dev-tab" data-tab="importExport">Import/Export</button>
             </div>
@@ -2205,6 +2130,20 @@
                     </div>
                 </div>
 
+                <!-- Groups Tab -->
+                <div id="groupsTab" class="dev-tab-content">
+                    <h3>Thêm Group</h3>
+                    <div class="input-group">
+                        <input type="text" id="groupName" placeholder="Tên group">
+                        <input type="text" id="groupLink" placeholder="Link group">
+                        <input type="file" id="groupImage" accept="image/*">
+                        <button id="addGroupBtn" class="btn-primary">Thêm group</button>
+                    </div>
+                    <div class="items-list" id="groupsList">
+                        <!-- Groups will be listed here -->
+                    </div>
+                </div>
+
                 <!-- Popup Tab -->
                 <div id="popupTab" class="dev-tab-content">
                     <h3>Cài đặt Popup</h3>
@@ -2226,21 +2165,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Cloud Viewer Overlay -->
-    <div id="cloudViewer" class="cloud-overlay">
-        <div class="cloud-header">
-            <span id="cloudViewerTitle">Cloud Viewer</span>
-            <div class="cloud-controls">
-                <span class="cloud-time" id="cloudTime">00:00:00</span>
-                <button id="minimizeCloud" class="cloud-btn">_</button>
-                <button id="closeCloud" class="cloud-btn">×</button>
-            </div>
-        </div>
-        <div class="cloud-content">
-            <iframe id="cloudFrame" src="" frameborder="0"></iframe>
         </div>
     </div>
 
@@ -2280,10 +2204,7 @@
             devMode: false,
             cloudViewer: {
                 isOpen: false,
-                isMinimized: false,
-                currentCloud: null,
-                remainingTime: 0,
-                timer: null
+                currentCloud: null
             },
             welcomePopup: {
                 show: true,
@@ -2292,13 +2213,9 @@
             music: {
                 isPlaying: false,
                 currentTrack: null,
-                volume: 0.5
-            },
-            chat: {
-                isOpen: false,
-                currentChat: 'default',
-                history: {},
-                isBotTyping: false
+                volume: 0.5,
+                isMuted: false,
+                autoNext: false
             },
             coins: parseInt(localStorage.getItem('coins')) || 0,
             dailyLogin: JSON.parse(localStorage.getItem('dailyLogin')) || {
@@ -2306,10 +2223,11 @@
                 streak: 0
             },
             purchasedClouds: JSON.parse(localStorage.getItem('purchasedClouds')) || {},
-            navigation: {
-                position: 'right',
-                floatingNavLocked: false,
-                floatingNavVisible: true
+            backgroundRunner: localStorage.getItem('backgroundRunner') === 'true',
+            customBackground: JSON.parse(localStorage.getItem('customBackground')) || {
+                type: 'none', // 'none', 'image', 'video'
+                data: null,
+                soundEnabled: false
             }
         };
 
@@ -2342,38 +2260,36 @@
             editNameBtn: document.getElementById('editNameBtn'),
             editNameBtn2: document.getElementById('editNameBtn2'),
             musicToggleBtn: document.getElementById('musicToggleBtn'),
-            chatBtn: document.getElementById('chatBtn'),
             
             // Pages
             downloadPage: document.getElementById('downloadPage'),
             cloudPage: document.getElementById('cloudPage'),
+            groupsPage: document.getElementById('groupsPage'),
             settingsPage: document.getElementById('settingsPage'),
             
             // Content containers
             gamesGrid: document.getElementById('gamesGrid'),
             cloudsGrid: document.getElementById('cloudsGrid'),
+            groupsGrid: document.getElementById('groupsGrid'),
+            zaloGroupsContainer: document.getElementById('zaloGroupsContainer'),
+            
+            // Search
+            downloadSearch: document.getElementById('downloadSearch'),
+            downloadSearchBtn: document.getElementById('downloadSearchBtn'),
+            downloadSearchResults: document.getElementById('downloadSearchResults'),
+            cloudSearch: document.getElementById('cloudSearch'),
+            cloudSearchBtn: document.getElementById('cloudSearchBtn'),
+            cloudSearchResults: document.getElementById('cloudSearchResults'),
             
             // Settings
             accountName: document.getElementById('accountName'),
             accountAvatar: document.getElementById('accountAvatar'),
             accountDiamonds: document.getElementById('accountDiamonds'),
             themeSwitch: document.getElementById('themeSwitch'),
+            backgroundRunner: document.getElementById('backgroundRunner'),
+            backgroundSettingsBtn: document.getElementById('backgroundSettingsBtn'),
             devModeBtn: document.getElementById('devModeBtn'),
             avatarUpload: document.getElementById('avatarUpload'),
-            
-            // Navigation buttons
-            navTopBtn: document.getElementById('navTopBtn'),
-            navBottomBtn: document.getElementById('navBottomBtn'),
-            navRightBtn: document.getElementById('navRightBtn'),
-            navLeftBtn: document.getElementById('navLeftBtn'),
-            navFloatBtn: document.getElementById('navFloatBtn'),
-            
-            // Floating navigation
-            floatingNav: document.getElementById('floatingNav'),
-            navLockBtn: document.getElementById('navLockBtn'),
-            navHideBtn: document.getElementById('navHideBtn'),
-            floatingNavBtns: document.querySelectorAll('.floating-nav-btn[data-page]'),
-            floatingChatBtn: document.getElementById('floatingChatBtn'),
             
             // Social Links
             youtubeLink: document.getElementById('youtubeLink'),
@@ -2384,6 +2300,16 @@
             dailyCalendar: document.getElementById('dailyCalendar'),
             codeInput: document.getElementById('codeInput'),
             claimCodeBtn: document.getElementById('claimCodeBtn'),
+            
+            // Background Runner
+            backgroundRunnerBtn: document.getElementById('backgroundRunnerBtn'),
+            
+            // Zalo Button
+            zaloButton: document.getElementById('zaloButton'),
+            
+            // Notification
+            notification: document.getElementById('notification'),
+            notificationText: document.querySelector('.notification-text'),
             
             // Popups
             welcomePopup: document.getElementById('welcomePopup'),
@@ -2411,33 +2337,43 @@
             confirmLogoutBtn: document.getElementById('confirmLogoutBtn'),
             cancelLogoutBtn: document.getElementById('cancelLogoutBtn'),
             
+            zaloGroupPopup: document.getElementById('zaloGroupPopup'),
+            confirmZaloBtn: document.getElementById('confirmZaloBtn'),
+            cancelZaloBtn: document.getElementById('cancelZaloBtn'),
+            
+            // Background Settings
+            backgroundSettingsPopup: document.getElementById('backgroundSettingsPopup'),
+            backgroundDragDrop: document.getElementById('backgroundDragDrop'),
+            backgroundPreview: document.getElementById('backgroundPreview'),
+            backgroundSound: document.getElementById('backgroundSound'),
+            applyBackgroundBtn: document.getElementById('applyBackgroundBtn'),
+            resetBackgroundBtn: document.getElementById('resetBackgroundBtn'),
+            cancelBackgroundBtn: document.getElementById('cancelBackgroundBtn'),
+            
             // Music Player
             musicPlayer: document.getElementById('musicPlayer'),
             closeMusicBtn: document.getElementById('closeMusicBtn'),
-            musicUrlInput: document.getElementById('musicUrlInput'),
-            playUrlBtn: document.getElementById('playUrlBtn'),
-            music1: document.getElementById('music1'),
-            music2: document.getElementById('music2'),
-            music3: document.getElementById('music3'),
-            music4: document.getElementById('music4'),
-            music5: document.getElementById('music5'),
-            musicSearchBtn: document.getElementById('musicSearchBtn'),
-            musicOffBtn: document.getElementById('musicOffBtn'),
+            musicSearchInput: document.getElementById('musicSearchInput'),
+            toggleMusicList: document.getElementById('toggleMusicList'),
+            musicAlbumArt: document.getElementById('musicAlbumArt'),
+            musicTitle: document.getElementById('musicTitle'),
+            rewindBtn: document.getElementById('rewindBtn'),
+            playPauseBtn: document.getElementById('playPauseBtn'),
+            forwardBtn: document.getElementById('forwardBtn'),
+            autoNextBtn: document.getElementById('autoNextBtn'),
+            volumeBtn: document.getElementById('volumeBtn'),
+            musicList: document.getElementById('musicList'),
             backgroundMusic: document.getElementById('backgroundMusic'),
             
-            // Chat System
-            chatContainer: document.getElementById('chatContainer'),
-            chatTitle: document.getElementById('chatTitle'),
-            chatContent: document.getElementById('chatContent'),
-            chatInput: document.getElementById('chatInput'),
-            sendMessageBtn: document.getElementById('sendMessageBtn'),
-            chatCloseBtn: document.getElementById('chatCloseBtn'),
-            chatMenuBtn: document.getElementById('chatMenuBtn'),
-            chatMenu: document.getElementById('chatMenu'),
-            newChatBtn: document.getElementById('newChatBtn'),
-            renameChatBtn: document.getElementById('renameChatBtn'),
-            pinChatBtn: document.getElementById('pinChatBtn'),
-            deleteChatBtn: document.getElementById('deleteChatBtn'),
+            // Cloud Viewer
+            cloudViewer: document.getElementById('cloudViewer'),
+            cloudViewerTitle: document.getElementById('cloudViewerTitle'),
+            cloudFrame: document.getElementById('cloudFrame'),
+            closeCloud: document.getElementById('closeCloud'),
+            
+            // Custom Background
+            customBackgroundImage: document.getElementById('customBackgroundImage'),
+            customBackgroundVideo: document.getElementById('customBackgroundVideo'),
             
             // Developer Mode
             devMode: document.getElementById('devMode'),
@@ -2464,6 +2400,13 @@
             addCloudBtn: document.getElementById('addCloudBtn'),
             cloudsList: document.getElementById('cloudsList'),
             
+            // Dev - Groups
+            groupName: document.getElementById('groupName'),
+            groupLink: document.getElementById('groupLink'),
+            groupImage: document.getElementById('groupImage'),
+            addGroupBtn: document.getElementById('addGroupBtn'),
+            groupsList: document.getElementById('groupsList'),
+            
             // Dev - Popup
             popupAvatarInput: document.getElementById('popupAvatarInput'),
             popupLink: document.getElementById('popupLink'),
@@ -2480,15 +2423,7 @@
             devPassword: document.getElementById('devPassword'),
             rememberDev: document.getElementById('rememberDev'),
             confirmDevLogin: document.getElementById('confirmDevLogin'),
-            cancelDevLogin: document.getElementById('cancelDevLogin'),
-            
-            // Cloud Viewer
-            cloudViewer: document.getElementById('cloudViewer'),
-            cloudViewerTitle: document.getElementById('cloudViewerTitle'),
-            cloudFrame: document.getElementById('cloudFrame'),
-            cloudTime: document.getElementById('cloudTime'),
-            minimizeCloud: document.getElementById('minimizeCloud'),
-            closeCloud: document.getElementById('closeCloud')
+            cancelDevLogin: document.getElementById('cancelDevLogin')
         };
 
         // Default avatar URL
@@ -2499,13 +2434,22 @@
 
         // Music tracks
         const MUSIC_TRACKS = {
-            track1: "https://github.com/Tuanndz/RBL_DL/blob/main/cause%20i%20love%20you.mp3",
-            track2: "https://github.com/Tuanndz/RBL_DL/blob/main/thegiantinh.mp3",
-            track3: "https://github.com/Tuanndz/RBL_DL/blob/main/toichocogaido.mp3",
+            track1: {
+                url: "https://files.catbox.moe/ykzx20.mp3",
+                name: "Cause I Love You",
+                image: "https://files.catbox.moe/7795se.jpg"
+            },
+            track2: {
+                url: "https://files.catbox.moe/5i3ird.mp3",
+                name: "Thế Gian Tình",
+                image: "https://files.catbox.moe/oy40lw.jpg"
+            },
+            track3: {
+                url: "https://files.catbox.moe/uhkz17.mp3",
+                name: "Tội Cho Cô Gái Đó",
+                image: "https://files.catbox.moe/8za3dh.jpg"
+            }
         };
-
-        // Gemini API Key
-        const GEMINI_API_KEY = "AIzaSyBLygFLTPw_Z21dfhj8Vs0CCOiZFzzJin8";
 
         // Daily login rewards
         const DAILY_REWARDS = {
@@ -2531,10 +2475,10 @@
             initializeApp();
             setupEventListeners();
             checkAuthState();
-            loadChatHistory();
             updateCoinsDisplay();
             setupDailyLogin();
-            setupNavigation();
+            setupBackgroundRunner();
+            setupCustomBackground();
         });
 
         function initializeApp() {
@@ -2550,8 +2494,11 @@
             // Check for active cloud sessions
             checkActiveCloudSessions();
             
-            // Load navigation settings
-            loadNavigationSettings();
+            // Setup music list
+            setupMusicList();
+            
+            // Setup auto next button
+            elements.autoNextBtn.classList.toggle('active', appState.music.autoNext);
         }
 
         function setupEventListeners() {
@@ -2567,7 +2514,7 @@
             // Navigation events
             elements.navBtns.forEach(btn => {
                 btn.addEventListener('click', (e) => {
-                    switchPage(e.target.dataset.page);
+                    switchPage(e.currentTarget.dataset.page);
                 });
             });
             
@@ -2579,25 +2526,21 @@
             
             // Settings events
             elements.themeSwitch.addEventListener('change', toggleTheme);
+            elements.backgroundRunner.addEventListener('change', toggleBackgroundRunner);
+            elements.backgroundSettingsBtn.addEventListener('click', showBackgroundSettings);
             elements.devModeBtn.addEventListener('click', openDevLogin);
             elements.avatarUpload.addEventListener('change', handleAvatarUpload);
             
-            // Navigation buttons events
-            elements.navTopBtn.addEventListener('click', () => setNavigationPosition('top'));
-            elements.navBottomBtn.addEventListener('click', () => setNavigationPosition('bottom'));
-            elements.navRightBtn.addEventListener('click', () => setNavigationPosition('right'));
-            elements.navLeftBtn.addEventListener('click', () => setNavigationPosition('left'));
-            elements.navFloatBtn.addEventListener('click', toggleFloatingNav);
-            
-            // Floating navigation events
-            elements.navLockBtn.addEventListener('click', toggleFloatingNavLock);
-            elements.navHideBtn.addEventListener('click', toggleFloatingNavVisibility);
-            elements.floatingNavBtns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    switchPage(e.target.dataset.page);
-                });
+            // Search events
+            elements.downloadSearchBtn.addEventListener('click', () => searchGames(elements.downloadSearch.value));
+            elements.downloadSearch.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') searchGames(elements.downloadSearch.value);
             });
-            elements.floatingChatBtn.addEventListener('click', toggleChat);
+            
+            elements.cloudSearchBtn.addEventListener('click', () => searchClouds(elements.cloudSearch.value));
+            elements.cloudSearch.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') searchClouds(elements.cloudSearch.value);
+            });
             
             // Social links events
             elements.youtubeLink.addEventListener('click', () => {
@@ -2615,6 +2558,19 @@
             // Daily login events
             elements.claimCodeBtn.addEventListener('click', claimCode);
             
+            // Background runner events
+            elements.backgroundRunnerBtn.addEventListener('click', toggleBackgroundRunnerBtn);
+            
+            // Zalo button events
+            elements.zaloButton.addEventListener('click', showZaloGroupPopup);
+            elements.confirmZaloBtn.addEventListener('click', () => {
+                window.open('https://zalo.me/g/yourgroup', '_blank');
+                hidePopup(elements.zaloGroupPopup);
+            });
+            elements.cancelZaloBtn.addEventListener('click', () => {
+                hidePopup(elements.zaloGroupPopup);
+            });
+            
             // Name edit events
             elements.editNameBtn.addEventListener('click', showNameEditPopup);
             elements.editNameBtn2.addEventListener('click', showNameEditPopup);
@@ -2624,30 +2580,15 @@
             // Music events
             elements.musicToggleBtn.addEventListener('click', toggleMusicPlayer);
             elements.closeMusicBtn.addEventListener('click', hideMusicPlayer);
-            elements.playUrlBtn.addEventListener('click', playMusicFromUrl);
-            elements.musicUrlInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') playMusicFromUrl();
+            elements.toggleMusicList.addEventListener('click', toggleMusicList);
+            elements.musicSearchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') searchMusic(elements.musicSearchInput.value);
             });
-            elements.music1.addEventListener('click', () => playMusic('track1'));
-            elements.music2.addEventListener('click', () => playMusic('track2'));
-            elements.music3.addEventListener('click', () => playMusic('track3'));
-            elements.music4.addEventListener('click', () => playMusic('track4'));
-            elements.music5.addEventListener('click', () => playMusic('track5'));
-            elements.musicSearchBtn.addEventListener('click', searchMusic);
-            elements.musicOffBtn.addEventListener('click', stopMusic);
-            
-            // Chat events
-            elements.chatBtn.addEventListener('click', toggleChat);
-            elements.chatCloseBtn.addEventListener('click', toggleChat);
-            elements.sendMessageBtn.addEventListener('click', sendMessage);
-            elements.chatInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') sendMessage();
-            });
-            elements.chatMenuBtn.addEventListener('click', toggleChatMenu);
-            elements.newChatBtn.addEventListener('click', createNewChat);
-            elements.renameChatBtn.addEventListener('click', renameChat);
-            elements.pinChatBtn.addEventListener('click', pinChat);
-            elements.deleteChatBtn.addEventListener('click', deleteChat);
+            elements.rewindBtn.addEventListener('click', rewindMusic);
+            elements.playPauseBtn.addEventListener('click', togglePlayPause);
+            elements.forwardBtn.addEventListener('click', forwardMusic);
+            elements.autoNextBtn.addEventListener('click', toggleAutoNext);
+            elements.volumeBtn.addEventListener('click', toggleMute);
             
             // Welcome popup events
             elements.notJoinedBtn.addEventListener('click', () => {
@@ -2669,6 +2610,20 @@
                 hidePopup(elements.cloudPurchasePopup);
             });
             
+            // Cloud viewer events
+            elements.closeCloud.addEventListener('click', closeCloud);
+            
+            // Background settings events
+            elements.applyBackgroundBtn.addEventListener('click', applyBackground);
+            elements.resetBackgroundBtn.addEventListener('click', resetBackground);
+            elements.cancelBackgroundBtn.addEventListener('click', () => {
+                hidePopup(elements.backgroundSettingsPopup);
+            });
+            elements.backgroundSound.addEventListener('change', toggleBackgroundSound);
+            
+            // Setup drag and drop for background
+            setupBackgroundDragDrop();
+            
             // Developer mode events
             elements.closeDevMode.addEventListener('click', () => {
                 hidePopup(elements.devMode);
@@ -2685,6 +2640,7 @@
             elements.addVideoBtn.addEventListener('click', addVideo);
             elements.addGameBtn.addEventListener('click', addGame);
             elements.addCloudBtn.addEventListener('click', addCloud);
+            elements.addGroupBtn.addEventListener('click', addGroup);
             elements.savePopupBtn.addEventListener('click', savePopupSettings);
             
             // Import/Export events
@@ -2697,171 +2653,8 @@
                 hidePopup(elements.devLogin);
             });
             
-            // Cloud viewer events
-            elements.minimizeCloud.addEventListener('click', minimizeCloud);
-            elements.closeCloud.addEventListener('click', closeCloud);
-            
-            // Close chat menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!elements.chatMenu.contains(e.target) && e.target !== elements.chatMenuBtn) {
-                    elements.chatMenu.classList.remove('active');
-                }
-            });
-        }
-
-        // Navigation functions
-        function setupNavigation() {
-            // Make floating nav draggable
-            makeFloatingNavDraggable();
-            
-            // Load saved navigation settings
-            const savedNavSettings = localStorage.getItem('navigationSettings');
-            if (savedNavSettings) {
-                const navSettings = JSON.parse(savedNavSettings);
-                appState.navigation = { ...appState.navigation, ...navSettings };
-                applyNavigationSettings();
-            }
-        }
-
-        function makeFloatingNavDraggable() {
-            let isDragging = false;
-            let offsetX, offsetY;
-            
-            elements.floatingNav.addEventListener('mousedown', startDrag);
-            document.addEventListener('mousemove', drag);
-            document.addEventListener('mouseup', stopDrag);
-            
-            function startDrag(e) {
-                if (appState.navigation.floatingNavLocked || e.target !== elements.floatingNav && !e.target.classList.contains('floating-nav-btn')) {
-                    return;
-                }
-                
-                isDragging = true;
-                const rect = elements.floatingNav.getBoundingClientRect();
-                offsetX = e.clientX - rect.left;
-                offsetY = e.clientY - rect.top;
-                
-                elements.floatingNav.style.transition = 'none';
-                e.preventDefault();
-            }
-            
-            function drag(e) {
-                if (!isDragging) return;
-                
-                const x = e.clientX - offsetX;
-                const y = e.clientY - offsetY;
-                
-                // Keep within viewport bounds
-                const maxX = window.innerWidth - elements.floatingNav.offsetWidth;
-                const maxY = window.innerHeight - elements.floatingNav.offsetHeight;
-                
-                elements.floatingNav.style.left = Math.max(0, Math.min(x, maxX)) + 'px';
-                elements.floatingNav.style.top = Math.max(0, Math.min(y, maxY)) + 'px';
-                elements.floatingNav.style.right = 'auto';
-                elements.floatingNav.style.bottom = 'auto';
-            }
-            
-            function stopDrag() {
-                if (!isDragging) return;
-                
-                isDragging = false;
-                elements.floatingNav.style.transition = 'all 0.3s ease';
-                
-                // Save position
-                saveNavigationSettings();
-            }
-        }
-
-        function setNavigationPosition(position) {
-            appState.navigation.position = position;
-            applyNavigationSettings();
-            saveNavigationSettings();
-        }
-
-        function applyNavigationSettings() {
-            // Reset all positions
-            elements.floatingNav.style.left = 'auto';
-            elements.floatingNav.style.right = 'auto';
-            elements.floatingNav.style.top = 'auto';
-            elements.floatingNav.style.bottom = 'auto';
-            elements.floatingNav.style.transform = 'none';
-            
-            switch (appState.navigation.position) {
-                case 'top':
-                    elements.floatingNav.style.top = '20px';
-                    elements.floatingNav.style.left = '50%';
-                    elements.floatingNav.style.transform = 'translateX(-50%)';
-                    elements.floatingNav.style.flexDirection = 'row';
-                    break;
-                case 'bottom':
-                    elements.floatingNav.style.bottom = '20px';
-                    elements.floatingNav.style.left = '50%';
-                    elements.floatingNav.style.transform = 'translateX(-50%)';
-                    elements.floatingNav.style.flexDirection = 'row';
-                    break;
-                case 'left':
-                    elements.floatingNav.style.left = '20px';
-                    elements.floatingNav.style.top = '50%';
-                    elements.floatingNav.style.transform = 'translateY(-50%)';
-                    elements.floatingNav.style.flexDirection = 'column';
-                    break;
-                case 'right':
-                default:
-                    elements.floatingNav.style.right = '20px';
-                    elements.floatingNav.style.top = '50%';
-                    elements.floatingNav.style.transform = 'translateY(-50%)';
-                    elements.floatingNav.style.flexDirection = 'column';
-                    break;
-            }
-            
-            // Apply lock state
-            if (appState.navigation.floatingNavLocked) {
-                elements.navLockBtn.classList.add('locked');
-                elements.navLockBtn.textContent = '🔓';
-            } else {
-                elements.navLockBtn.classList.remove('locked');
-                elements.navLockBtn.textContent = '🔒';
-            }
-            
-            // Apply visibility state
-            if (appState.navigation.floatingNavVisible) {
-                elements.floatingNav.classList.remove('minimized');
-                elements.navHideBtn.textContent = '^';
-            } else {
-                elements.floatingNav.classList.add('minimized');
-                elements.navHideBtn.textContent = 'v';
-            }
-        }
-
-        function toggleFloatingNav() {
-            appState.navigation.position = appState.navigation.position === 'float' ? 'right' : 'float';
-            applyNavigationSettings();
-            saveNavigationSettings();
-        }
-
-        function toggleFloatingNavLock() {
-            appState.navigation.floatingNavLocked = !appState.navigation.floatingNavLocked;
-            applyNavigationSettings();
-            saveNavigationSettings();
-        }
-
-        function toggleFloatingNavVisibility() {
-            appState.navigation.floatingNavVisible = !appState.navigation.floatingNavVisible;
-            applyNavigationSettings();
-            saveNavigationSettings();
-        }
-
-        function loadNavigationSettings() {
-            const savedSettings = localStorage.getItem('navigationSettings');
-            if (savedSettings) {
-                const settings = JSON.parse(savedSettings);
-                appState.navigation = { ...appState.navigation, ...settings };
-                applyNavigationSettings();
-            }
-        }
-
-        function saveNavigationSettings() {
-            localStorage.setItem('navigationSettings', JSON.stringify(appState.navigation));
+            // Music ended event
+            elements.backgroundMusic.addEventListener('ended', handleMusicEnded);
         }
 
         // Registration form functions
@@ -2985,6 +2778,8 @@
             updateCoinsDisplay();
             loadGames();
             loadClouds();
+            loadGroups();
+            loadZaloGroups();
             
             // Show welcome popup if needed
             setTimeout(() => {
@@ -3146,7 +2941,52 @@
             }
         }
 
-        // Avatar upload function
+        // Background runner
+        function setupBackgroundRunner() {
+            elements.backgroundRunner.checked = appState.backgroundRunner;
+            
+            if (appState.backgroundRunner) {
+                document.addEventListener('visibilitychange', handleVisibilityChange);
+            }
+        }
+
+        function toggleBackgroundRunner() {
+            appState.backgroundRunner = elements.backgroundRunner.checked;
+            localStorage.setItem('backgroundRunner', appState.backgroundRunner);
+            
+            if (appState.backgroundRunner) {
+                document.addEventListener('visibilitychange', handleVisibilityChange);
+                showNotification('Đã bật chạy nền ứng dụng thành công');
+            } else {
+                document.removeEventListener('visibilitychange', handleVisibilityChange);
+                showNotification('Đã tắt chạy nền ứng dụng thành công');
+            }
+        }
+
+        function toggleBackgroundRunnerBtn() {
+            appState.backgroundRunner = !appState.backgroundRunner;
+            localStorage.setItem('backgroundRunner', appState.backgroundRunner);
+            
+            if (appState.backgroundRunner) {
+                document.addEventListener('visibilitychange', handleVisibilityChange);
+                showNotification('Đã bật chạy nền ứng dụng thành công');
+            } else {
+                document.removeEventListener('visibilitychange', handleVisibilityChange);
+                showNotification('Đã tắt chạy nền ứng dụng thành công');
+            }
+            
+            // Update the checkbox in settings
+            elements.backgroundRunner.checked = appState.backgroundRunner;
+        }
+
+        function handleVisibilityChange() {
+            if (document.hidden && appState.backgroundRunner) {
+                // App is running in background
+                console.log('App is running in background');
+            }
+        }
+
+        // Avatar upload function with drag and drop
         async function handleAvatarUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
@@ -3243,230 +3083,138 @@
             elements.musicPlayer.classList.remove('active');
         }
 
-        function playMusicFromUrl() {
-            const url = elements.musicUrlInput.value.trim();
-            if (!url) {
-                alert('Vui lòng nhập URL nhạc');
-                return;
+        function setupMusicList() {
+            elements.musicList.innerHTML = '';
+            
+            for (const trackId in MUSIC_TRACKS) {
+                const track = MUSIC_TRACKS[trackId];
+                const musicItem = document.createElement('div');
+                musicItem.className = 'music-item';
+                musicItem.textContent = track.name;
+                musicItem.dataset.trackId = trackId;
+                
+                musicItem.addEventListener('click', () => {
+                    playMusic(trackId);
+                    document.querySelectorAll('.music-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    musicItem.classList.add('active');
+                });
+                
+                elements.musicList.appendChild(musicItem);
             }
-            
-            // Check if URL is valid
-            try {
-                new URL(url);
-            } catch (e) {
-                alert('URL không hợp lệ');
-                return;
-            }
-            
-            elements.backgroundMusic.src = url;
-            elements.backgroundMusic.play();
-            appState.music.isPlaying = true;
-            appState.music.currentTrack = 'custom';
-            
-            // Update active button
-            document.querySelectorAll('.music-buttons button').forEach(btn => {
-                btn.classList.remove('active');
-            });
         }
 
-        function playMusic(track) {
-            if (MUSIC_TRACKS[track]) {
-                elements.backgroundMusic.src = MUSIC_TRACKS[track];
+        function toggleMusicList() {
+            elements.musicList.classList.toggle('active');
+        }
+
+        function searchMusic(query) {
+            const filteredTracks = {};
+            
+            for (const trackId in MUSIC_TRACKS) {
+                const track = MUSIC_TRACKS[trackId];
+                if (track.name.toLowerCase().includes(query.toLowerCase())) {
+                    filteredTracks[trackId] = track;
+                }
+            }
+            
+            // Update music list with filtered results
+            elements.musicList.innerHTML = '';
+            
+            for (const trackId in filteredTracks) {
+                const track = filteredTracks[trackId];
+                const musicItem = document.createElement('div');
+                musicItem.className = 'music-item';
+                musicItem.textContent = track.name;
+                musicItem.dataset.trackId = trackId;
+                
+                musicItem.addEventListener('click', () => {
+                    playMusic(trackId);
+                    document.querySelectorAll('.music-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    musicItem.classList.add('active');
+                });
+                
+                elements.musicList.appendChild(musicItem);
+            }
+            
+            // Show music list if there are results
+            if (Object.keys(filteredTracks).length > 0) {
+                elements.musicList.classList.add('active');
+            }
+        }
+
+        function playMusic(trackId) {
+            const track = MUSIC_TRACKS[trackId];
+            if (track) {
+                elements.backgroundMusic.src = track.url;
                 elements.backgroundMusic.play();
                 appState.music.isPlaying = true;
-                appState.music.currentTrack = track;
+                appState.music.currentTrack = trackId;
                 
-                // Update active button
-                document.querySelectorAll('.music-buttons button').forEach(btn => {
-                    btn.classList.remove('active');
+                // Update album art
+                elements.musicAlbumArt.src = track.image;
+                
+                // Update play/pause button
+                elements.playPauseBtn.textContent = '⏸️';
+                
+                // Update music title
+                elements.musicTitle.textContent = track.name;
+                elements.musicTitle.classList.remove('paused');
+            }
+        }
+
+        function togglePlayPause() {
+            if (appState.music.isPlaying) {
+                elements.backgroundMusic.pause();
+                appState.music.isPlaying = false;
+                elements.playPauseBtn.textContent = '▶️';
+                elements.musicTitle.classList.add('paused');
+            } else {
+                elements.backgroundMusic.play();
+                appState.music.isPlaying = true;
+                elements.playPauseBtn.textContent = '⏸️';
+                elements.musicTitle.classList.remove('paused');
+            }
+        }
+
+        function rewindMusic() {
+            elements.backgroundMusic.currentTime = Math.max(0, elements.backgroundMusic.currentTime - 10);
+        }
+
+        function forwardMusic() {
+            elements.backgroundMusic.currentTime = Math.min(elements.backgroundMusic.duration, elements.backgroundMusic.currentTime + 10);
+        }
+
+        function toggleAutoNext() {
+            appState.music.autoNext = !appState.music.autoNext;
+            elements.autoNextBtn.classList.toggle('active', appState.music.autoNext);
+        }
+
+        function toggleMute() {
+            appState.music.isMuted = !appState.music.isMuted;
+            elements.backgroundMusic.muted = appState.music.isMuted;
+            elements.volumeBtn.textContent = appState.music.isMuted ? '🔇' : '🔊';
+        }
+
+        function handleMusicEnded() {
+            if (appState.music.autoNext && appState.music.currentTrack) {
+                // Get current track index
+                const trackIds = Object.keys(MUSIC_TRACKS);
+                const currentIndex = trackIds.indexOf(appState.music.currentTrack);
+                
+                // Play next track or loop back to first
+                const nextIndex = (currentIndex + 1) % trackIds.length;
+                playMusic(trackIds[nextIndex]);
+                
+                // Update active music item
+                document.querySelectorAll('.music-item').forEach(item => {
+                    item.classList.remove('active');
                 });
-                document.getElementById(track).classList.add('active');
+                document.querySelector(`.music-item[data-track-id="${trackIds[nextIndex]}"]`).classList.add('active');
             }
-        }
-
-        function searchMusic() {
-            const query = elements.musicUrlInput.value.trim();
-            if (!query) {
-                alert('Vui lòng nhập từ khóa tìm kiếm');
-                return;
-            }
-            
-            // In a real app, you would integrate with a music API here
-            alert(`Tìm kiếm nhạc với từ khóa: ${query}\n\nTính năng này cần tích hợp với API nhạc.`);
-        }
-
-        function stopMusic() {
-            elements.backgroundMusic.pause();
-            elements.backgroundMusic.currentTime = 0;
-            appState.music.isPlaying = false;
-            appState.music.currentTrack = null;
-            
-            // Remove active class from all buttons
-            document.querySelectorAll('.music-buttons button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-        }
-
-        // Chat functions with Gemini API
-        function toggleChat() {
-            elements.chatContainer.classList.toggle('active');
-            appState.chat.isOpen = !appState.chat.isOpen;
-        }
-
-        function toggleChatMenu() {
-            elements.chatMenu.classList.toggle('active');
-        }
-
-        function loadChatHistory() {
-            const savedHistory = localStorage.getItem('chatHistory');
-            if (savedHistory) {
-                appState.chat.history = JSON.parse(savedHistory);
-                
-                // Load current chat if exists
-                if (appState.chat.history[appState.chat.currentChat]) {
-                    renderChatHistory(appState.chat.history[appState.chat.currentChat]);
-                }
-            }
-        }
-
-        function saveChatHistory() {
-            localStorage.setItem('chatHistory', JSON.stringify(appState.chat.history));
-        }
-
-        function renderChatHistory(messages) {
-            elements.chatContent.innerHTML = '';
-            
-            if (messages && messages.length > 0) {
-                messages.forEach(msg => {
-                    addMessageToChat(msg.text, msg.sender);
-                });
-            }
-        }
-
-        function addMessageToChat(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}-message`;
-            messageDiv.textContent = text;
-            
-            elements.chatContent.appendChild(messageDiv);
-            elements.chatContent.scrollTop = elements.chatContent.scrollHeight;
-        }
-
-        async function sendMessage() {
-            const message = elements.chatInput.value.trim();
-            
-            if (!message || appState.chat.isBotTyping) return;
-            
-            // Add user message to chat
-            addMessageToChat(message, 'user');
-            
-            // Save to history
-            if (!appState.chat.history[appState.chat.currentChat]) {
-                appState.chat.history[appState.chat.currentChat] = [];
-            }
-            
-            appState.chat.history[appState.chat.currentChat].push({
-                text: message,
-                sender: 'user',
-                timestamp: Date.now()
-            });
-            
-            saveChatHistory();
-            
-            // Clear input
-            elements.chatInput.value = '';
-            
-            // Disable send button while bot is typing
-            elements.sendMessageBtn.disabled = true;
-            appState.chat.isBotTyping = true;
-            
-            try {
-                // Call Gemini API
-                const botResponse = await callGeminiAPI(message);
-                
-                // Add bot message to chat
-                addMessageToChat(botResponse, 'bot');
-                
-                // Save to history
-                appState.chat.history[appState.chat.currentChat].push({
-                    text: botResponse,
-                    sender: 'bot',
-                    timestamp: Date.now()
-                });
-                
-                saveChatHistory();
-            } catch (error) {
-                console.error('Lỗi khi gọi API Gemini:', error);
-                addMessageToChat('Xin lỗi, tôi đang gặp sự cố kỹ thuật. Vui lòng thử lại sau.', 'bot');
-            } finally {
-                // Re-enable send button
-                elements.sendMessageBtn.disabled = false;
-                appState.chat.isBotTyping = false;
-            }
-        }
-
-        async function callGeminiAPI(userMessage) {
-            try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        contents: [{
-                            parts: [{
-                                text: userMessage
-                            }]
-                        }]
-                    })
-                });
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                
-                if (data.candidates && data.candidates[0] && data.candidates[0].content) {
-                    return data.candidates[0].content.parts[0].text;
-                } else {
-                    throw new Error('Invalid response from Gemini API');
-                }
-            } catch (error) {
-                console.error('Error calling Gemini API:', error);
-                throw error;
-            }
-        }
-
-        function createNewChat() {
-            const chatId = 'chat_' + Date.now();
-            appState.chat.currentChat = chatId;
-            appState.chat.history[chatId] = [];
-            elements.chatContent.innerHTML = '';
-            elements.chatMenu.classList.remove('active');
-        }
-
-        function renameChat() {
-            const newName = prompt('Nhập tên mới cho đoạn chat:');
-            if (newName) {
-                elements.chatTitle.textContent = newName;
-            }
-            elements.chatMenu.classList.remove('active');
-        }
-
-        function pinChat() {
-            // In a real app, you would implement pinning functionality
-            alert('Đã ghim đoạn chat');
-            elements.chatMenu.classList.remove('active');
-        }
-
-        function deleteChat() {
-            if (confirm('Bạn có chắc muốn xoá đoạn chat này?')) {
-                delete appState.chat.history[appState.chat.currentChat];
-                createNewChat();
-                saveChatHistory();
-            }
-            elements.chatMenu.classList.remove('active');
         }
 
         // Navigation
@@ -3479,6 +3227,7 @@
             // Update active page
             elements.downloadPage.classList.toggle('active', page === 'download');
             elements.cloudPage.classList.toggle('active', page === 'cloud');
+            elements.groupsPage.classList.toggle('active', page === 'groups');
             elements.settingsPage.classList.toggle('active', page === 'settings');
             
             appState.currentPage = page;
@@ -3491,11 +3240,29 @@
             
             // Save theme to localStorage
             localStorage.setItem('theme', newTheme);
+            
+            // Show notification
+            showNotification(`Đã chuyển sang chế độ ${newTheme === 'dark' ? 'tối' : 'sáng'} thành công`);
         }
 
         function applyTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
             elements.themeSwitch.checked = theme === 'dark';
+        }
+
+        // Notification function
+        function showNotification(message) {
+            elements.notificationText.textContent = message;
+            elements.notification.classList.add('show');
+            
+            setTimeout(() => {
+                elements.notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Zalo group popup
+        function showZaloGroupPopup() {
+            showPopup(elements.zaloGroupPopup);
         }
 
         // Welcome popup
@@ -3575,6 +3342,28 @@
                 
                 elements.gamesGrid.appendChild(gameCard);
             });
+        }
+
+        function searchGames(query) {
+            const games = JSON.parse(localStorage.getItem('games') || '[]');
+            if (!query) {
+                renderGames(games);
+                elements.downloadSearchResults.textContent = '';
+                return;
+            }
+            
+            const filteredGames = games.filter(game => 
+                game.name.toLowerCase().includes(query.toLowerCase())
+            );
+            
+            renderGames(filteredGames);
+            
+            // Show search results info
+            if (filteredGames.length > 0) {
+                elements.downloadSearchResults.textContent = `Tìm thấy ${filteredGames.length} kết quả cho "${query}"`;
+            } else {
+                elements.downloadSearchResults.textContent = `Không tìm thấy kết quả nào cho "${query}"`;
+            }
         }
 
         function showGameDetail(game) {
@@ -3686,6 +3475,149 @@
                 });
                 
                 elements.cloudsGrid.appendChild(cloudCard);
+            });
+        }
+
+        function searchClouds(query) {
+            const clouds = JSON.parse(localStorage.getItem('clouds') || '[]');
+            if (!query) {
+                renderClouds(clouds);
+                elements.cloudSearchResults.textContent = '';
+                return;
+            }
+            
+            const filteredClouds = clouds.filter(cloud => 
+                cloud.name.toLowerCase().includes(query.toLowerCase())
+            );
+            
+            renderClouds(filteredClouds);
+            
+            // Show search results info
+            if (filteredClouds.length > 0) {
+                elements.cloudSearchResults.textContent = `Tìm thấy ${filteredClouds.length} kết quả cho "${query}"`;
+            } else {
+                elements.cloudSearchResults.textContent = `Không tìm thấy kết quả nào cho "${query}"`;
+            }
+        }
+
+        // Groups management
+        async function loadGroups() {
+            try {
+                // Try to load from localStorage first
+                let groupsData = JSON.parse(localStorage.getItem('groups') || '[]');
+                
+                // If no groups in localStorage, try to load from group.json
+                if (groupsData.length === 0) {
+                    try {
+                        const response = await fetch('group.json');
+                        if (response.ok) {
+                            groupsData = await response.json();
+                            // Save to localStorage for future use
+                            localStorage.setItem('groups', JSON.stringify(groupsData));
+                        }
+                    } catch (error) {
+                        console.error('Lỗi tải group.json:', error);
+                    }
+                }
+                
+                renderGroups(groupsData);
+            } catch (error) {
+                console.error('Lỗi tải groups:', error);
+                renderGroups([]);
+            }
+        }
+
+        function renderGroups(groups) {
+            elements.groupsGrid.innerHTML = '';
+            
+            if (groups.length === 0) {
+                elements.groupsGrid.innerHTML = `
+                    <div class="empty-state">
+                        <p>Chưa có group nào</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            groups.forEach(group => {
+                const groupCard = document.createElement('div');
+                groupCard.className = 'group-card';
+                groupCard.innerHTML = `
+                    <img src="${group.image}" alt="${group.name}">
+                    <div class="group-info">
+                        <h3>${group.name}</h3>
+                        <button class="btn-primary join-group-btn" data-link="${group.link}">Tham gia</button>
+                    </div>
+                `;
+                
+                const joinBtn = groupCard.querySelector('.join-group-btn');
+                joinBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    window.open(group.link, '_blank');
+                });
+                
+                elements.groupsGrid.appendChild(groupCard);
+            });
+        }
+
+        // Zalo Groups in Settings
+        async function loadZaloGroups() {
+            try {
+                // Try to load from localStorage first
+                let zaloGroupsData = JSON.parse(localStorage.getItem('zaloGroups') || '[]');
+                
+                // If no groups in localStorage, try to load from settinggroupzalo.json
+                if (zaloGroupsData.length === 0) {
+                    try {
+                        const response = await fetch('settinggroupzalo.json');
+                        if (response.ok) {
+                            zaloGroupsData = await response.json();
+                            // Save to localStorage for future use
+                            localStorage.setItem('zaloGroups', JSON.stringify(zaloGroupsData));
+                        }
+                    } catch (error) {
+                        console.error('Lỗi tải settinggroupzalo.json:', error);
+                    }
+                }
+                
+                renderZaloGroups(zaloGroupsData);
+            } catch (error) {
+                console.error('Lỗi tải zalo groups:', error);
+                renderZaloGroups([]);
+            }
+        }
+
+        function renderZaloGroups(groups) {
+            elements.zaloGroupsContainer.innerHTML = '';
+            
+            if (groups.length === 0) {
+                elements.zaloGroupsContainer.innerHTML = `
+                    <div class="empty-state">
+                        <p>Chưa có nhóm Zalo nào</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            groups.forEach(group => {
+                const groupElement = document.createElement('div');
+                groupElement.className = 'zalo-group';
+                groupElement.innerHTML = `
+                    <div class="group-avatar">
+                        <img src="${group.image}" alt="${group.name}">
+                    </div>
+                    <div class="group-info">
+                        <h4>${group.name}</h4>
+                        <button class="btn-primary join-btn" data-link="${group.link}">Tham gia</button>
+                    </div>
+                `;
+                
+                const joinBtn = groupElement.querySelector('.join-btn');
+                joinBtn.addEventListener('click', () => {
+                    window.open(group.link, '_blank');
+                });
+                
+                elements.zaloGroupsContainer.appendChild(groupElement);
             });
         }
 
@@ -3930,74 +3862,21 @@
             }
             
             elements.cloudViewerTitle.textContent = name;
+            
+            // Fix for cloud embed issues
+            // Add sandbox attributes to iframe to prevent connection issues
+            elements.cloudFrame.sandbox = "allow-scripts allow-same-origin allow-forms allow-popups";
             elements.cloudFrame.src = url;
             
             appState.cloudViewer.isOpen = true;
             appState.cloudViewer.currentCloud = { name, url, id: cloudId };
-            appState.cloudViewer.isMinimized = false;
-            
-            // Calculate remaining time
-            if (cloudPurchase.expiresAt === 'infinite') {
-                appState.cloudViewer.remainingTime = 'infinite';
-                elements.cloudTime.textContent = 'Vô hạn';
-            } else {
-                appState.cloudViewer.remainingTime = cloudPurchase.expiresAt - now;
-                updateCloudTimeDisplay();
-                
-                // Start countdown timer
-                if (appState.cloudViewer.timer) {
-                    clearInterval(appState.cloudViewer.timer);
-                }
-                
-                appState.cloudViewer.timer = setInterval(() => {
-                    appState.cloudViewer.remainingTime -= 1000;
-                    updateCloudTimeDisplay();
-                    
-                    if (appState.cloudViewer.remainingTime <= 0) {
-                        clearInterval(appState.cloudViewer.timer);
-                        closeCloud();
-                        alert('Thời gian sử dụng cloud của bạn đã hết!');
-                    }
-                }, 1000);
-            }
             
             elements.cloudViewer.classList.add('active');
-            elements.cloudViewer.classList.remove('minimized');
-        }
-
-        function updateCloudTimeDisplay() {
-            if (appState.cloudViewer.remainingTime === 'infinite') {
-                elements.cloudTime.textContent = 'Vô hạn';
-                return;
-            }
-            
-            const hours = Math.floor(appState.cloudViewer.remainingTime / (1000 * 60 * 60));
-            const minutes = Math.floor((appState.cloudViewer.remainingTime % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((appState.cloudViewer.remainingTime % (1000 * 60)) / 1000);
-            
-            elements.cloudTime.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }
-
-        function minimizeCloud() {
-            appState.cloudViewer.isMinimized = true;
-            elements.cloudViewer.classList.add('minimized');
-            
-            setTimeout(() => {
-                if (appState.cloudViewer.isMinimized) {
-                    elements.cloudViewer.classList.remove('active');
-                }
-            }, 250);
         }
 
         function closeCloud() {
             appState.cloudViewer.isOpen = false;
             appState.cloudViewer.currentCloud = null;
-            appState.cloudViewer.isMinimized = false;
-            
-            if (appState.cloudViewer.timer) {
-                clearInterval(appState.cloudViewer.timer);
-                appState.cloudViewer.timer = null;
-            }
             
             elements.cloudViewer.classList.remove('active');
             elements.cloudFrame.src = '';
@@ -4022,13 +3901,192 @@
             }
         }
 
-        function restoreCloud() {
-            if (appState.cloudViewer.currentCloud) {
-                openCloud(
-                    appState.cloudViewer.currentCloud.name,
-                    appState.cloudViewer.currentCloud.url,
-                    appState.cloudViewer.currentCloud.id
-                );
+        // Custom Background Functions
+        function setupCustomBackground() {
+            if (appState.customBackground.type !== 'none') {
+                applyCustomBackground();
+            }
+        }
+
+        function showBackgroundSettings() {
+            showPopup(elements.backgroundSettingsPopup);
+            
+            // Load current background settings
+            elements.backgroundSound.checked = appState.customBackground.soundEnabled;
+            
+            // Clear preview
+            elements.backgroundPreview.innerHTML = '';
+        }
+
+        function setupBackgroundDragDrop() {
+            const dragDropArea = elements.backgroundDragDrop;
+            
+            // Prevent default drag behaviors
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dragDropArea.addEventListener(eventName, preventDefaults, false);
+                document.body.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            // Highlight drop area when item is dragged over it
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dragDropArea.addEventListener(eventName, highlight, false);
+            });
+            
+            ['dragleave', 'drop'].forEach(eventName => {
+                dragDropArea.addEventListener(eventName, unhighlight, false);
+            });
+            
+            // Handle dropped files
+            dragDropArea.addEventListener('drop', handleDrop, false);
+            
+            // Handle click to select file
+            dragDropArea.addEventListener('click', () => {
+                const fileInput = document.createElement('input');
+                fileInput.type = 'file';
+                fileInput.accept = 'image/*,video/*';
+                fileInput.multiple = false;
+                fileInput.addEventListener('change', handleFileSelect);
+                fileInput.click();
+            });
+            
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            function highlight() {
+                dragDropArea.classList.add('active');
+            }
+            
+            function unhighlight() {
+                dragDropArea.classList.remove('active');
+            }
+            
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                handleFiles(files);
+            }
+            
+            function handleFileSelect(e) {
+                const files = e.target.files;
+                handleFiles(files);
+            }
+            
+            function handleFiles(files) {
+                if (files.length > 0) {
+                    const file = files[0];
+                    const fileType = file.type.split('/')[0]; // 'image' or 'video'
+                    const fileSize = file.size; // in bytes
+                    
+                    // Check file size for videos (max 50MB)
+                    if (fileType === 'video' && fileSize > 50 * 1024 * 1024) {
+                        alert('Video quá lớn! Vui lòng chọn video dưới 50MB.');
+                        return;
+                    }
+                    
+                    // Create preview
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const dataUrl = e.target.result;
+                        
+                        if (fileType === 'image') {
+                            elements.backgroundPreview.innerHTML = `<img src="${dataUrl}" alt="Background Preview">`;
+                        } else if (fileType === 'video') {
+                            elements.backgroundPreview.innerHTML = `<video src="${dataUrl}" controls></video>`;
+                            // Auto-enable sound for videos
+                            elements.backgroundSound.checked = true;
+                        }
+                        
+                        // Store file data for later use
+                        elements.backgroundPreview.dataset.fileType = fileType;
+                        elements.backgroundPreview.dataset.fileData = dataUrl;
+                    };
+                    
+                    if (fileType === 'image') {
+                        reader.readAsDataURL(file);
+                    } else if (fileType === 'video') {
+                        reader.readAsDataURL(file);
+                    }
+                }
+            }
+        }
+
+        function applyBackground() {
+            const fileType = elements.backgroundPreview.dataset.fileType;
+            const fileData = elements.backgroundPreview.dataset.fileData;
+            
+            if (!fileType || !fileData) {
+                alert('Vui lòng chọn ảnh hoặc video để làm hình nền');
+                return;
+            }
+            
+            // Save background settings
+            appState.customBackground = {
+                type: fileType,
+                data: fileData,
+                soundEnabled: elements.backgroundSound.checked
+            };
+            
+            localStorage.setItem('customBackground', JSON.stringify(appState.customBackground));
+            
+            // Apply the background
+            applyCustomBackground();
+            
+            hidePopup(elements.backgroundSettingsPopup);
+            showNotification('Hình nền đã được cập nhật thành công!');
+        }
+
+        function resetBackground() {
+            appState.customBackground = {
+                type: 'none',
+                data: null,
+                soundEnabled: false
+            };
+            
+            localStorage.setItem('customBackground', JSON.stringify(appState.customBackground));
+            
+            // Remove custom background
+            elements.customBackgroundImage.style.display = 'none';
+            elements.customBackgroundVideo.style.display = 'none';
+            elements.customBackgroundVideo.pause();
+            
+            hidePopup(elements.backgroundSettingsPopup);
+            showNotification('Đã khôi phục hình nền mặc định!');
+        }
+
+        function applyCustomBackground() {
+            const bg = appState.customBackground;
+            
+            if (bg.type === 'image' && bg.data) {
+                elements.customBackgroundImage.src = bg.data;
+                elements.customBackgroundImage.style.display = 'block';
+                elements.customBackgroundVideo.style.display = 'none';
+                elements.customBackgroundVideo.pause();
+            } else if (bg.type === 'video' && bg.data) {
+                elements.customBackgroundVideo.src = bg.data;
+                elements.customBackgroundVideo.muted = !bg.soundEnabled;
+                elements.customBackgroundVideo.style.display = 'block';
+                elements.customBackgroundImage.style.display = 'none';
+                
+                // Play the video
+                elements.customBackgroundVideo.play().catch(e => {
+                    console.error('Lỗi phát video:', e);
+                });
+            } else {
+                elements.customBackgroundImage.style.display = 'none';
+                elements.customBackgroundVideo.style.display = 'none';
+                elements.customBackgroundVideo.pause();
+            }
+        }
+
+        function toggleBackgroundSound() {
+            if (appState.customBackground.type === 'video') {
+                appState.customBackground.soundEnabled = elements.backgroundSound.checked;
+                localStorage.setItem('customBackground', JSON.stringify(appState.customBackground));
+                
+                // Apply sound setting
+                elements.customBackgroundVideo.muted = !appState.customBackground.soundEnabled;
             }
         }
 
@@ -4074,6 +4132,9 @@
             // Load clouds
             await loadCloudsList();
             
+            // Load groups
+            await loadGroupsList();
+            
             // Load popup settings
             await loadPopupSettings();
         }
@@ -4103,12 +4164,6 @@
                         <button class="delete-btn" data-id="${video.id}">Xóa</button>
                     </div>
                 `;
-                
-                videoItem.addEventListener('click', (e) => {
-                    if (!e.target.classList.contains('delete-btn')) {
-                        videoItem.classList.toggle('selected');
-                    }
-                });
                 
                 const deleteBtn = videoItem.querySelector('.delete-btn');
                 deleteBtn.addEventListener('click', (e) => {
@@ -4190,12 +4245,6 @@
                         <button class="delete-btn" data-id="${game.id}">Xóa</button>
                     </div>
                 `;
-                
-                gameItem.addEventListener('click', (e) => {
-                    if (!e.target.classList.contains('delete-btn')) {
-                        gameItem.classList.toggle('selected');
-                    }
-                });
                 
                 const deleteBtn = gameItem.querySelector('.delete-btn');
                 deleteBtn.addEventListener('click', (e) => {
@@ -4306,12 +4355,6 @@
                     </div>
                 `;
                 
-                cloudItem.addEventListener('click', (e) => {
-                    if (!e.target.classList.contains('delete-btn')) {
-                        cloudItem.classList.toggle('selected');
-                    }
-                });
-                
                 const deleteBtn = cloudItem.querySelector('.delete-btn');
                 deleteBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -4392,6 +4435,111 @@
             }
         }
 
+        // Dev - Groups management
+        async function loadGroupsList() {
+            try {
+                const groupsData = JSON.parse(localStorage.getItem('groups') || '[]');
+                renderGroupsList(groupsData);
+            } catch (error) {
+                console.error('Lỗi tải groups:', error);
+            }
+        }
+
+        function renderGroupsList(groups) {
+            elements.groupsList.innerHTML = '';
+            
+            groups.forEach(group => {
+                const groupItem = document.createElement('div');
+                groupItem.className = 'item';
+                groupItem.innerHTML = `
+                    <img src="${group.image}" alt="${group.name}">
+                    <div class="item-info">
+                        <h4>${group.name}</h4>
+                        <p>${group.link}</p>
+                    </div>
+                    <div class="item-actions">
+                        <button class="delete-btn" data-id="${group.id}">Xóa</button>
+                    </div>
+                `;
+                
+                const deleteBtn = groupItem.querySelector('.delete-btn');
+                deleteBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    deleteGroup(group.id);
+                });
+                
+                elements.groupsList.appendChild(groupItem);
+            });
+        }
+
+        async function addGroup() {
+            const name = elements.groupName.value.trim();
+            const link = elements.groupLink.value.trim();
+            const imageFile = elements.groupImage.files[0];
+            
+            if (!name || !link) {
+                alert('Vui lòng nhập tên group và link');
+                return;
+            }
+            
+            try {
+                let imageSrc = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"%3E%3Crect width="300" height="200" fill="%23006AFF"/%3E%3Ctext x="150" y="100" text-anchor="middle" fill="white" font-size="24"%3E' + encodeURIComponent(name) + '%3C/text%3E%3C/svg%3E';
+                
+                if (imageFile) {
+                    // Convert image to base64 for localStorage
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imageSrc = e.target.result;
+                        completeAddGroup(name, link, imageSrc);
+                    };
+                    reader.readAsDataURL(imageFile);
+                } else {
+                    completeAddGroup(name, link, imageSrc);
+                }
+            } catch (error) {
+                console.error('Lỗi thêm group:', error);
+                alert('Lỗi thêm group: ' + error.message);
+            }
+        }
+
+        function completeAddGroup(name, link, imageSrc) {
+            const newGroup = {
+                id: Date.now(),
+                name,
+                link,
+                image: imageSrc
+            };
+            
+            const groups = JSON.parse(localStorage.getItem('groups') || '[]');
+            groups.push(newGroup);
+            localStorage.setItem('groups', JSON.stringify(groups));
+            
+            renderGroupsList(groups);
+            renderGroups(groups); // Update main groups view
+            
+            // Clear form
+            elements.groupName.value = '';
+            elements.groupLink.value = '';
+            elements.groupImage.value = '';
+        }
+
+        async function getGroups() {
+            return JSON.parse(localStorage.getItem('groups') || '[]');
+        }
+
+        async function deleteGroup(groupId) {
+            try {
+                const groups = JSON.parse(localStorage.getItem('groups') || '[]');
+                const filteredGroups = groups.filter(g => g.id !== groupId);
+                localStorage.setItem('groups', JSON.stringify(filteredGroups));
+                renderGroupsList(filteredGroups);
+                renderGroups(filteredGroups); // Update main groups view
+            } catch (error) {
+                console.error('Lỗi xóa group:', error);
+                alert('Lỗi xóa group: ' + error.message);
+            }
+        }
+
         // Dev - Popup settings
         async function loadPopupSettings() {
             try {
@@ -4448,9 +4596,10 @@
         // Import/Export
         async function exportData() {
             try {
-                const [games, clouds, videos, settings] = await Promise.all([
+                const [games, clouds, groups, videos, settings] = await Promise.all([
                     getGames(),
                     getClouds(),
+                    getGroups(),
                     getVideos(),
                     Promise.resolve(JSON.parse(localStorage.getItem('popupSettings') || '{}'))
                 ]);
@@ -4458,6 +4607,7 @@
                 const data = {
                     games,
                     clouds,
+                    groups,
                     videos,
                     settings
                 };
@@ -4502,6 +4652,10 @@
                             localStorage.setItem('clouds', JSON.stringify(importedData.clouds));
                         }
                         
+                        if (importedData.groups) {
+                            localStorage.setItem('groups', JSON.stringify(importedData.groups));
+                        }
+                        
                         if (importedData.videos) {
                             localStorage.setItem('videos', JSON.stringify(importedData.videos));
                         }
@@ -4513,6 +4667,8 @@
                         // Refresh views
                         loadGames();
                         loadClouds();
+                        loadGroups();
+                        loadZaloGroups();
                         loadDevData();
                         
                         alert('Dữ liệu đã được import thành công');
