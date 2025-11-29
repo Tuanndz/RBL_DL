@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "VIP Cloud Gaming",
+    "url": "https://now.gg/play/roblox-corporation/5349/roblox",
+    "image": "https://files.catbox.moe/cloud1.jpg",
+    "likes": 45,
+    "dislikes": 2
+  },
+  {
+    "id": 2,
+    "name": "Premium Cloud",
+    "url": "https://www.microsoft.com/en-us/p/roblox/9nblgggzm6wm",
+    "image": "https://files.catbox.moe/cloud2.jpg",
+    "likes": 32,
+    "dislikes": 5
+  },
+  {
+    "id": 3,
+    "name": "Fast Cloud Gaming",
+    "url": "https://play.google.com/store/apps/details?id=com.roblox.client",
+    "image": "https://files.catbox.moe/cloud3.jpg",
+    "likes": 28,
+    "dislikes": 3
+  },
+  {
+    "id": 4,
+    "name": "Ultra Cloud",
+    "url": "https://apps.apple.com/us/app/roblox/id431946152",
+    "image": "https://files.catbox.moe/cloud4.jpg",
+    "likes": 51,
+    "dislikes": 1
+  },
+  {
+    "id": 5,
+    "name": "Free Cloud Access",
+    "url": "https://www.roblox.com/games",
+    "image": "https://files.catbox.moe/cloud5.jpg",
+    "likes": 67,
+    "dislikes": 8
+  },
+  {
+    "id": 6,
+    "name": "Pro Cloud Gaming",
+    "url": "https://web.roblox.com/home",
+    "image": "https://files.catbox.moe/cloud6.jpg",
+    "likes": 39,
+    "dislikes": 4
+  }
+]
